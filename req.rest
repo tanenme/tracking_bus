@@ -1,0 +1,86 @@
+POST http://127.0.0.1:5000/signup
+Content-Type: application/json
+
+{
+    "pengemudi_id": 2,
+    "username": "adminiini",
+    "password": "inioasasd"
+}
+
+####
+POST http://127.0.0.1:5000/signin
+Content-Type: application/json
+
+{
+    "username": "adminiini",
+    "password": "inioasasd"
+}
+
+
+
+################################################
+
+GET http://localhost:5000/getlokasibus
+
+###
+GET http://localhost:5000/getlokasibus/1
+
+
+########################################HALTE################################################
+
+###
+GET http://localhost:5000/getlokasihalte
+
+###
+GET http://localhost:5000/getlokasihalte/1
+
+###
+POST  http://localhost:5000/getnearesthalte
+Content-Type: application/json
+
+{
+    "latitude": -7.813174,
+    "longitude": 112.005526
+}
+
+###
+POST  http://localhost:5000/getjadwal/1
+Content-Type: application/json
+
+{
+    "jadwal_datang": "17:00"
+}
+
+##############################PRIVATE############################
+###
+PATCH  http://localhost:5000/updatebus
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzMyMTc1ODc3fQ.PHaR6cqVSBGCbDNjG_FNlmnUfPdDGoNgkHn4QjGCBbc
+
+
+{
+    "bus_id": 1,
+    "latitude": -10.813174,
+    "longitude": 112.005526
+}
+
+
+###
+PATCH  http://localhost:5000/setaktifbus/1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzMyMTc1ODc3fQ.PHaR6cqVSBGCbDNjG_FNlmnUfPdDGoNgkHn4QjGCBbc
+
+
+{
+    "status": true
+}
+
+###
+PATCH  http://localhost:5000/setnonaktifbus/2
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzMyMTc1ODc3fQ.PHaR6cqVSBGCbDNjG_FNlmnUfPdDGoNgkHn4QjGCBbc
+
+
+{
+    "status": false
+}
