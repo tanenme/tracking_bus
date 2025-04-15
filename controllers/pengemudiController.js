@@ -30,7 +30,6 @@ export const signup = async (req, res) => {
         }
 
         req.body.password = await bcrypt.hash(req.body.password, 10);
-        
 
         await Pengemudi.create(req.body)
         res.status(201).json({success: true,
@@ -69,7 +68,7 @@ export const signin = async(req, res) =>{
         }
         
         const config = { id: pengemudi.pengemudi_id, username: req.body.pengemudi }
-        const token = jwt.sign(config, process.env.secretme);
+        const token = jwt.sign(config, 'iniadalahscretkey');
 
         res.status(200).json({
             success: true,

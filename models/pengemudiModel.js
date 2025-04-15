@@ -2,9 +2,10 @@ import { DataTypes } from 'sequelize';
 import db from '../config/database.js';
 
 const Pengemudi = db.define('pengemudi', {
-  pengemudi_id: {
+  id: {
     type: DataTypes.INTEGER,
-    primaryKey: true
+    primaryKey: true,
+    autoIncrement: true
   },
   username: {
     type: DataTypes.STRING 
@@ -19,7 +20,7 @@ const Pengemudi = db.define('pengemudi', {
 
 export default Pengemudi;
 
-await db.sync();
+//await db.sync();
 
 // await Pengemudi.create({
 //   pengemudi_id: 1,

@@ -1,10 +1,10 @@
+###
 POST http://127.0.0.1:5000/signup
 Content-Type: application/json
 
 {
-    "pengemudi_id": 2,
-    "username": "adminiini",
-    "password": "inioasasd"
+    "username": "ronyhertanto",
+    "password": "inipassword123"
 }
 
 ####
@@ -12,8 +12,8 @@ POST http://127.0.0.1:5000/signin
 Content-Type: application/json
 
 {
-    "username": "adminiini",
-    "password": "inioasasd"
+    "username": "ronyhertanto",
+    "password": "inipassword123"
 }
 
 
@@ -23,7 +23,7 @@ Content-Type: application/json
 GET http://localhost:5000/getlokasibus
 
 ###
-GET http://localhost:5000/getlokasibus/1
+GET http://localhost:5000/getlokasibus/2
 
 
 ########################################HALTE################################################
@@ -32,15 +32,15 @@ GET http://localhost:5000/getlokasibus/1
 GET http://localhost:5000/getlokasihalte
 
 ###
-GET http://localhost:5000/getlokasihalte/1
+GET http://localhost:5000/getlokasihalte/23
 
 ###
 POST  http://localhost:5000/getnearesthalte
 Content-Type: application/json
 
 {
-    "latitude": -7.813174,
-    "longitude": 112.005526
+    "latitude": -7.832355,
+    "longitude":   111.984223
 }
 
 ###

@@ -2,15 +2,24 @@ import { DataTypes } from 'sequelize';
 import db from '../config/database.js';
 
 const Halte = db.define('halte', {
-  halte_id: {
+  id: {
     type: DataTypes.INTEGER,
-    primaryKey: true
+    primaryKey: true,
+    autoIncrement: true
   },
-  nama_halte: {
+  nama: {
     type: DataTypes.STRING,
     allowNull: false
   },
-  lokasi_halte: {
+  lat: {
+    type: DataTypes.DOUBLE,
+    allowNull: false
+  },
+  long: {
+    type: DataTypes.DOUBLE,
+    allowNull: false
+  },
+  alamat: {
     type: DataTypes.STRING,
     allowNull: false
   }
@@ -22,4 +31,4 @@ const Halte = db.define('halte', {
 export default Halte;
 
 
-await db.sync();
+//await db.sync();
