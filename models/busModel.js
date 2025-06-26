@@ -11,6 +11,10 @@ const Bus = db.define('bus', {
     type: DataTypes.STRING,
     allowNull: false
   },
+  no_plat: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
   lat: {
     type: DataTypes.DOUBLE,
     allowNull: false

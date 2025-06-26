@@ -1,10 +1,10 @@
 import express from "express";
 import {
     getLokasiBus,
+    getNonaktifBus,
     getLokasiOneBus,
-    setAktifBus,
-    setNonaktifBus,
-    updateLokasiBus, 
+    setAktifBus, setNonaktif,
+    updateLokasiBus,
 } from "../controllers/busController.js";
 
 import {
@@ -33,15 +33,16 @@ router.get('/getlokasihalte', getLokasiHalte);
 router.get('/getlokasihalte/:halte_id', getLokasiOneHalte);
 router.post('/getnearesthalte', getNearestHalte)
 
-router.post('/getjadwal/:halte_id', getJadwal);
+router.get('/getjadwal/:halte_id', getJadwal);
 
+router.get('/getnonaktifbus', getNonaktifBus);
 router.get('/getlokasibus', getLokasiBus);
 router.get('/getlokasibus/:bus_id', getLokasiOneBus);
 
 router.use(authMiddleware)
 
-router.patch('/setaktifbus/:bus_id', setAktifBus);
-router.patch('/setnonaktifbus/:bus_id', setNonaktifBus);
+router.patch('/setaktifbus/', setAktifBus);
+router.patch('/setnonaktifbus/', setNonaktif);
 router.patch('/updatebus', updateLokasiBus);
 
 

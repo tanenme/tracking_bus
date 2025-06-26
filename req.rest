@@ -3,8 +3,8 @@ POST http://127.0.0.1:5000/signup
 Content-Type: application/json
 
 {
-    "username": "ronyhertanto",
-    "password": "inipassword123"
+    "username": "ronytan1",
+    "password": "12345678"
 }
 
 ####
@@ -12,15 +12,21 @@ POST http://127.0.0.1:5000/signin
 Content-Type: application/json
 
 {
-    "username": "ronyhertanto",
-    "password": "inipassword123"
+    "username": "ronytan1",
+    "password": "12345678"
 }
+
+################################################
+GET http://localhost:5000/getjadwal/1
 
 
 
 ################################################
 
 GET http://localhost:5000/getlokasibus
+
+####
+GET http://localhost:5000/getnonaktifbus
 
 ###
 GET http://localhost:5000/getlokasibus/2
@@ -59,28 +65,28 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzMyMTc1
 
 
 {
-    "bus_id": 1,
-    "latitude": -10.813174,
-    "longitude": 112.005526
+    "id": 6,
+    "lat": -7.827515,
+    "long": 111.999004
 }
 
 
 ###
-PATCH  http://localhost:5000/setaktifbus/1
+PATCH  http://localhost:5000/setaktifbus/
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzMyMTc1ODc3fQ.PHaR6cqVSBGCbDNjG_FNlmnUfPdDGoNgkHn4QjGCBbc
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDU2NzY3NjZ9.p7hBYp71spejIohWGFuDPtuBlpMByOr8ctfuCFNsPIk
 
 {
-    "status": true
+    "id": 6,
+    "id_pengemudi" : 2
 }
 
 ###
-PATCH  http://localhost:5000/setnonaktifbus/2
+PATCH  http://localhost:5000/setnonaktifbus/
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzMyMTc1ODc3fQ.PHaR6cqVSBGCbDNjG_FNlmnUfPdDGoNgkHn4QjGCBbc
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDU2NzY3NjZ9.p7hBYp71spejIohWGFuDPtuBlpMByOr8ctfuCFNsPIk
 
 {
-    "status": false
+  "id": 6,
+  "id_pengemudi" : 2
 }

@@ -4,15 +4,7 @@ import { updateBusValidate, setBus } from "../validasi/busSchema.js";
 export const setAktifBus = async(req, res) =>{
     try {
 
-        const {error} = updateBusValidate.validate(req.body)
-
-        if (error) {
-            res.status(400).json({success: false,
-                 msg: error.details[0].message })
-            return;
-        }
-
-        const bus = await Bus.findOne({ where: { id: req.body.id_bus } });
+        const bus = await Bus.findOne({ where: { id: req.body.id } });
 
         if (!bus) {
             return res.status(401).json({success: false,
@@ -28,17 +20,10 @@ export const setAktifBus = async(req, res) =>{
     }
 }
 
-export const setNonaktifBus = async(req, res) =>{
+export const setNonaktif = async(req, res) =>{
     try {
-        const {error} = updateBusValidate.validate(req.body)
 
-        if (error) {
-            res.status(400).json({success: false,
-                 msg: error.details[0].message })
-            return;
-        }
-
-        const bus = await Bus.findOne({ where: { id: req.body.id_bus } });
+        const bus = await Bus.findOne({ where: { id: req.body.id } });
 
         if (!bus) {
             return res.status(401).json({success: false,
@@ -46,14 +31,14 @@ export const setNonaktifBus = async(req, res) =>{
         }
 
         await bus.update({is_aktif: false, id_pengemudi: req.body.id_pengemudi});
-
         res.status(200).json({success: true,
-            msg: "Bus nonaktif"});
+            msg: "Bus Nonaktif"});
     } catch (error) {
         res.status(401).json({success: false,
             msg: error });
     }
 }
+
 
 export const updateLokasiBus = async(req, res) =>{
     try {
@@ -67,7 +52,7 @@ export const updateLokasiBus = async(req, res) =>{
           }
 
         
-        const bus = await Bus.findOne({ where: { id: req.body.bus_id } });
+        const bus = await Bus.findOne({ where: { id: req.body.id } });
 
         if (!bus) {
             return res.status(401).json({success: false,
@@ -90,6 +75,24 @@ export const getLokasiBus = async(req, res) =>{
         const response = await Bus.findAll({
             where: {
                 is_aktif: true
+            },
+            order: [['id', 'ASC']]
+        });
+
+        res.status(200).json({
+            success: true,
+            msg: response
+        });
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+export const getNonaktifBus = async(req, res) =>{
+    try {
+        const response = await Bus.findAll({
+            where: {
+                is_aktif: false
             },
             order: [['id', 'ASC']]
         });
